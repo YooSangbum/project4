@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+:root {
+  font-size: 16px;
+  font-family: 'Hahmlet', serif;
+  --c-bg: #e38233;
+}
+
+.mw {
+  max-width: 1100px;
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+}
+
+.App {
+  background-color: var(--c-bg);
+}
+
+/* Header 영역 */
+.hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 120px;
+}
+.login,
+.myPage {
+  font-size: 1.25rem;
+  padding: 1rem;
+}
+
+/* MainBanner 영역 */
+.MainBanner {
+  border: 1px solid red;
+}
+.main_logo {
+  border: 1px solid yellow;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 3rem auto;
+  position: relative;
+}
+.maps,
+.mart {
+  width: 100%;
+  padding-top: 25%;
+  position: relative;
+}
+.maps > img,
+.mart > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mart > img {
+  left: 70%;
+}
+.main_logoP {
+  position: absolute;
+  bottom: -20%;
+  left: 0%;
+  width: 100%;
+  font-size: 1.25rem;
+}
+.circle {
+  border: 3px solid red;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem auto;
+}
+.circle img {
+  position: absolute;
+  width: 100%;
+}
+.circle_left,
+.circle_right {
+  width: 50%;
+  padding-top: 30%;
+  position: relative;
+  border: 3px solid blue;
+}
+.circle_left img:nth-of-type(1) {
+  width: 30px;
+  top: 0;
+  right: 10%;
+}
+.circle_left img:nth-of-type(2) {
+  width: 40px;
+  top: 30%;
+  right: 30%;
+}
+.circle_left img:nth-of-type(3) {
+  width: 50px;
+  top: 60%;
+  right: 50%;
+}
