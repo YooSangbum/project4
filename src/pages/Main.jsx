@@ -2,7 +2,7 @@ import MainBanner from './MainBanner';
 
 function Main() {
   return (
-    <section>
+    <section className="main">
       <MainBanner />
     </section>
   );

@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="wrap">
       <header className="hd mw">
-        <Link className="logo">
+        <Link to="/" className="logo">
           <img src={`${process.env.PUBLIC_URL}/image/logoS.png`} alt="logo" />
         </Link>
         <div className="person">
