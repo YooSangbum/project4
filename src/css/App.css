@@ -24,6 +24,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 10vh;
 }
 .logo {
   width: 120px;
@@ -37,7 +38,8 @@ img {
 /* MainBanner 영역 */
 .main {
   background-color: var(--c-bg);
-  padding: 5.5rem 0 3rem;
+  height: calc((100vh - 20vh));
+  padding: 5rem 0;
 }
 .MainBanner {
   -webkit-background-size: cover;
@@ -95,6 +97,8 @@ img {
 }
 .cartGif {
   animation: blurFadeIn 1s ease-in backwards 3s;
+  width: 100%;
+  padding: 1rem;
 }
 .choice {
   display: flex;
@@ -141,6 +145,7 @@ img {
 .choice_right svg:hover {
   fill: black;
 }
+
 @keyframes blurFadeIn {
   0% {
     opacity: 0;
@@ -225,6 +230,7 @@ img {
 .ft {
   display: flex;
   align-items: center;
+  height: 10vh;
 }
 .ftLogo {
   width: 120px;
@@ -232,7 +238,7 @@ img {
 .ftCon {
   font-size: 2rem;
 }
-
+/* MainList */
 /* CartList 영역 */
 .CartList_name {
   width: 100%;
@@ -281,9 +287,9 @@ img {
   background-color: #ff7bac;
 }
 .markCon {
-  width: 12%;
+  width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
 }
 .like {
@@ -292,19 +298,25 @@ img {
 }
 .like path {
   fill: transparent;
-  stroke-width: 20;
+  stroke-width: 30;
   stroke: red;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 .like:hover svg path {
   fill: #ff4b4b;
 }
+.like > svg > path.on {
+  fill: #ff0000;
+}
 .bookmark {
   cursor: pointer;
 }
-.bookmark:hover svg {
+.bookmark > svg > path.on {
   fill: #ffc700;
+}
+.bookmark:hover svg {
+  fill: #f1cb3f;
 }
 .CartList_contents {
   padding: 1rem;
@@ -315,6 +327,236 @@ img {
   justify-content: flex-end;
   align-items: center;
 }
+.LinkCon a:hover {
+  color: tomato;
+}
 .CartList_more {
   padding: 0.5rem;
+}
+
+/* BestPlace 영역 */
+.BestPlace {
+  position: relative;
+  border: 3px solid #0f0f0f;
+  border-radius: 50px;
+  margin: 4rem auto 4rem;
+  border: 3px solid red;
+}
+.BestPlaceSvg {
+  position: absolute;
+  top: -18%;
+  left: -8%;
+  width: 180px;
+}
+
+/* HotList 영역 */
+.HotList_Title,
+.PickList_title,
+.BookMarkList_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+.HotList_Title .like svg path,
+.PickList_title .like svg path,
+.BookMarkList_title .like svg path {
+  fill: #ff4b4b;
+}
+.HotList_Title span,
+.PickList_title span,
+.BookMarkList_title span {
+  margin-left: 0.3rem;
+  font-weight: 600;
+}
+.HotList_ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.HotList_li {
+  border: 3px solid #0f0f0f;
+  border-radius: 1rem;
+  width: calc(100% / 3 - 2rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  position: relative;
+}
+.HotList_li:hover {
+  box-shadow: 6px 5px 1px #0f0f0f;
+}
+.HotList_imgcon {
+  width: 50%;
+  padding-top: 50%;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.HotList_imgcon img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.HotList_pcon {
+  width: 50%;
+  padding-left: 0.5rem;
+}
+.HotList_pcon > * {
+  padding: 0.5rem 0;
+}
+.HotList_li a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* PickList, BookMarkList 영역 */
+.BestPlace_ListCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+.PickList,
+.BookMarkList {
+  width: calc(100% / 2 - 1rem);
+}
+.PickList_ul,
+.BookMarkList_ul {
+  width: 100%;
+}
+.PickList_li,
+.BookMarkList_li {
+  border: 3px solid #0f0f0f;
+  border-radius: 20px;
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.PickList_li:hover,
+.BookMarkList_li:hover {
+  box-shadow: 3px 3px 1px #0f0f0f;
+}
+
+/* Self 영역 */
+/* Select 영역 */
+
+/* 참고영역 */
+.selectBox2 {
+  position: relative;
+  width: 150px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px solid lightcoral;
+  background: url('https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png')
+    calc(100% - 7px) center no-repeat;
+  background-size: 20px;
+  cursor: pointer;
+}
+
+.selectBox2:after {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 35px;
+  background: lightcoral;
+}
+
+.selectBox2 .label {
+  display: flex;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  border: 0 none;
+  outline: 0 none;
+  padding-left: 15px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.selectBox2 .optionList {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  width: 100%;
+  background: lightcoral;
+  color: #fff;
+  list-style-type: none;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease-in;
+}
+
+.selectBox2 .optionList::-webkit-scrollbar {
+  width: 6px;
+}
+.selectBox2 .optionList::-webkit-scrollbar-track {
+  background: transparent;
+}
+.selectBox2 .optionList::-webkit-scrollbar-thumb {
+  background: #303030;
+  border-radius: 45px;
+}
+.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {
+  background: #303030;
+}
+
+.selectBox2.active .optionList {
+  max-height: 500px;
+}
+
+.selectBox2 .optionItem {
+  border-bottom: 1px dashed rgb(170, 72, 72);
+  padding: 5px 15px 5px;
+  transition: 0.1s;
+}
+
+.selectBox2 .optionItem:hover {
+  background: rgb(175, 93, 93);
+}
+
+.selectBox2 .optionItem:last-child {
+  border-bottom: 0 none;
+}
+
+/* 참고영역 끝 */
+
+.Select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Select .selectCon select {
+  margin: 1rem 1rem 1rem 0;
+  padding: 0.5rem 2.5rem;
+  border: 2px solid #0f0f0f;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.Select .selectCon option {
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.SelectImgCon {
+  width: 40px;
+}
+.SelectImgCon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

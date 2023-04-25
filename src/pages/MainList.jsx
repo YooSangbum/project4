@@ -1,13 +1,19 @@
 import CartList from './CartList';
-import HotList from './HotList';
-import BestList from './BestList';
+import BestPlace from './BestPlace';
+import { useState } from 'react';
+
+import BestCartListData from './BestCartListData';
+import PlaceListData from './PlaceListData';
 
 function MainList() {
+  let [data] = useState(BestCartListData);
+  let CartListData = data.slice(0, 4);
+
+  let [place] = useState(PlaceListData);
   return (
-    <section>
-      <CartList />
-      <HotList />
-      <BestList />
+    <section className="MainList">
+      <CartList data={CartListData} />
+      <BestPlace data={place} />
     </section>
   );
 }

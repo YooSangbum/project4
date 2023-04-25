@@ -20,7 +20,7 @@ function MainBanner() {
       </div>
       <div className="choice">
         <div className="choice_left">
-          <Link to="/">
+          <Link to="/self">
             <SelfSvg />
           </Link>
         </div>
