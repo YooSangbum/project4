@@ -557,3 +557,68 @@ img {
 .swiper-pagination {
   display: none;
 }
+
+/* SelfList 영역 */
+.SelfList_name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+.SelfList_name span:first-of-type {
+  color: #3fa9f5;
+}
+.SelfList_name img {
+  margin-left: 0.2rem;
+  width: 1.5rem;
+}
+.selfList_ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.selfList_li {
+  width: calc(100% / 2 - 1rem);
+}
+.selfList_list {
+  width: 100%;
+  border: 3px solid #0f0f0f;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+.selfList_list:hover {
+  box-shadow: 3px 3px 1px #0f0f0f;
+}
+.selfList_list_title {
+  width: 80%;
+  padding: 0.5rem 1rem;
+}
+.selfList_imgCon {
+  width: 20%;
+}
+.selfList_list img {
+  width: 1rem;
+}
+
+/* paginations 영역 */
+.paginations {
+  margin-bottom: 4rem;
+}
+.paginations button {
+  border: 2px solid #0f0f0f;
+  border-radius: 6px;
+  outline: none;
+  padding: 0.3rem;
+  margin: 1rem 1rem 1rem 0;
+  background-color: transparent;
+}
+.paginations button:hover {
+  background-color: #39b54a;
+}
