@@ -19,6 +19,7 @@ const Paginations = ({
       >
         <Link className="page-link">이전</Link>
       </button>
+      <p className="page-num">{currentPage}</p>
       <button
         disabled={currentPage === pageNumbers}
         onClick={() => {
