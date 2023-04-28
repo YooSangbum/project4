@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import Button from 'react-bootstrap/Button';
+import Overlay from 'react-bootstrap/Overlay';
+import Popover from 'react-bootstrap/Popover';
 
 function ShopSelfList({ a }) {
   // let [like, setLike] = useState(false);
@@ -19,8 +22,16 @@ function ShopSelfList({ a }) {
   ) => {
     const data = { title, addr, tel, mapLat, mapLot, summ, dtlAddr };
     localStorage.setItem('selected', JSON.stringify(data));
-    console.log(data);
-    setStorage([data]);
+    setStorage(data);
+  };
+  // ===============================================================================================
+  const [show, setShow] = useState(false);
+  const [target, setTarget] = useState(null);
+  const ref = useRef(null);
+
+  const handleClick = (event) => {
+    setShow(!show);
+    setTarget(event.target);
   };
 
   return (
@@ -38,7 +49,7 @@ function ShopSelfList({ a }) {
         );
       }}
     >
-      <div className="selfList_list">
+      <div className="selfList_list" ref={ref}>
         <div
           className="selfList_imgCon"
           // onClick={() => {
@@ -58,6 +69,33 @@ function ShopSelfList({ a }) {
         </div>
         <p className="selfList_list_title">{a.shppgNm}</p>
         <p className="selfList_list_Addr">{a.shppgAddr}</p>
+        <div className="btn_con">
+          <Button onClick={handleClick}> 더보기 + </Button>
+        </div>
+
+        <Overlay
+          show={show}
+          target={target}
+          placement="top"
+          container={ref}
+          containerPadding={20}
+        >
+          <Popover id="popover-contained">
+            <Popover.Header as="h3">{a.tourspotNm}</Popover.Header>
+            <Popover.Body>
+              <div className="toolTips_con">
+                <div className="toolTips_map">지도</div>
+                <div className="toolTips_pcon">
+                  <p className="toolTips_title">{storage.title}</p>
+                  <p className="toolTips_addr">주소:{storage.addr}</p>
+                  <p className="toolTips_dtlAddr">구주소:{storage.dtlAddr}</p>
+                  <p className="toolTips_tel">전화번호:{storage.tel}</p>
+                  <p className="toolTips_summ">설명: {storage.summ}</p>
+                </div>
+              </div>
+            </Popover.Body>
+          </Popover>
+        </Overlay>
       </div>
     </li>
   );

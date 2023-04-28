@@ -692,3 +692,7 @@ img {
 .toolTips_pcon > p {
   padding: 0.5rem 0;
 }
+.toolTips_summ {
+  overflow: scroll;
+  height: 20vh;
+}

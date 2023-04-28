@@ -22,8 +22,7 @@ function TourSelfList({ a }) {
   ) => {
     const data = { title, addr, tel, mapLat, mapLot, summ, dtlAddr };
     localStorage.setItem('selected', JSON.stringify(data));
-    console.log(data);
-    setStorage([data]);
+    setStorage(data);
   };
   // ===============================================================================================
   const [show, setShow] = useState(false);
@@ -89,11 +88,11 @@ function TourSelfList({ a }) {
               <div className="toolTips_con">
                 <div className="toolTips_map">지도</div>
                 <div className="toolTips_pcon">
-                  <p className="toolTips_title">이름</p>
-                  <p className="toolTips_addr">주소</p>
-                  <p className="toolTips_dtlAddr">구주소</p>
-                  <p className="toolTips_tel">전화번호</p>
-                  <p className="toolTips_summ">설명</p>
+                  <p className="toolTips_title">{storage.title}</p>
+                  <p className="toolTips_addr">주소:{storage.addr}</p>
+                  <p className="toolTips_dtlAddr">구주소:{storage.dtlAddr}</p>
+                  <p className="toolTips_tel">전화번호:{storage.tel}</p>
+                  <p className="toolTips_summ">설명: {storage.summ}</p>
                 </div>
               </div>
             </Popover.Body>
