@@ -106,22 +106,26 @@ function Self() {
     selectedComponent = <Room list={dataR} />;
   }
 
+  let [watched] = useState([]);
+
   return (
-    <section className="Self mw">
-      <Select
-        handleSearchGu={handleSearchGu}
-        handleSearchDong={handleSearchDong}
-        handleSelect={handleSelect}
-        chooseGu={chooseGu}
-      />
-      <SelfHotList />
-      <p className="SelfList_name">
-        <span>골라</span>
-        <span>담기</span>
-        <img src={`${process.env.PUBLIC_URL}/image/pick.png`} alt="pick" />
-      </p>
-      {selectedComponent}
-    </section>
+    <>
+      <section className="Self mw">
+        <Select
+          handleSearchGu={handleSearchGu}
+          handleSearchDong={handleSearchDong}
+          handleSelect={handleSelect}
+          chooseGu={chooseGu}
+        />
+        <SelfHotList />
+        <p className="SelfList_name">
+          <span>골라</span>
+          <span>담기</span>
+          <img src={`${process.env.PUBLIC_URL}/image/pick.png`} alt="pick" />
+        </p>
+        {selectedComponent}
+      </section>
+    </>
   );
 }
 

@@ -1,3 +1,5 @@
+import Cart from './Cart';
+
 function Select({ handleSearchGu, handleSearchDong, handleSelect, chooseGu }) {
   return (
     <section className="Select mw">
@@ -25,12 +27,7 @@ function Select({ handleSearchGu, handleSearchDong, handleSelect, chooseGu }) {
           <option value="4">숙박업소</option>
         </select>
       </div>
-      <div className="SelectImgCon">
-        <img
-          src={`${process.env.PUBLIC_URL}/image/bag.png`}
-          alt="장바구니담기"
-        />
-      </div>
+      <Cart />
     </section>
   );
 }

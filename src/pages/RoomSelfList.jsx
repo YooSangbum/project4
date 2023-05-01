@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 
+import Kakao from './Maps';
+
 function RoomSelfList({ a }) {
   // let [like, setLike] = useState(false);
   // ===============================================================================================
@@ -84,13 +86,34 @@ function RoomSelfList({ a }) {
             <Popover.Header as="h3">{a.tourspotNm}</Popover.Header>
             <Popover.Body>
               <div className="toolTips_con">
-                <div className="toolTips_map">지도</div>
+                <div className="toolTips_map">
+                  <Kakao item={storage} />
+                </div>
                 <div className="toolTips_pcon">
-                  <p className="toolTips_title">{storage.title}</p>
-                  <p className="toolTips_addr">주소:{storage.addr}</p>
-                  <p className="toolTips_dtlAddr">구주소:{storage.dtlAddr}</p>
-                  <p className="toolTips_tel">전화번호:{storage.tel}</p>
-                  <p className="toolTips_summ">설명: {storage.summ}</p>
+                  <p className="toolTips_title">
+                    {storage.title ? storage.title : '데이터가 없습니다'}
+                  </p>
+                  <p className="toolTips_addr">
+                    <strong>주소 </strong>
+                    {storage.addr ? storage.addr : '데이터가 없습니다.'}
+                  </p>
+                  <p className="toolTips_dtlAddr">
+                    <strong>구주소 </strong>
+                    {storage.dtlAddr ? storage.dtlAddr : '데이터가 없습니다'}
+                  </p>
+                  <p className="toolTips_tel">
+                    <strong>전화번호 </strong>
+                    {storage.tel ? storage.tel : '데이터가 없습니다'}
+                  </p>
+                  <p className="toolTips_summ">
+                    <strong>설명</strong>
+                    <span>
+                      {storage.summ ? storage.summ : '데이터가 없습니다'}
+                    </span>
+                  </p>
+                </div>
+                <div className="toolTips_Pcon">
+                  <button>담기</button>
                 </div>
               </div>
             </Popover.Body>

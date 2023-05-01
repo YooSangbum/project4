@@ -461,6 +461,7 @@ img {
   border-radius: 1rem;
   font-size: 1.2rem;
   font-weight: 500;
+  cursor: pointer;
 }
 .Select .selectCon option {
   background-color: transparent;
@@ -469,6 +470,7 @@ img {
 }
 .SelectImgCon {
   width: 40px;
+  cursor: pointer;
 }
 .SelectImgCon img {
   width: 100%;
@@ -517,16 +519,10 @@ img {
 .SelfHotList_ImgCon:hover > img {
   transform: translate(-50%, -50%) scale(1.1);
 }
-/* .SelfHotList_ImgCon:hover .SelfHotList_like {
-  top: 0;
-} */
-.SelfHotList_ImgCon:hover .SelfHotList_name {
-  bottom: 0;
-}
 .SelfHotList_name {
-  transition: 0.3s;
+  transition: 0.5s;
   position: absolute;
-  bottom: -100px;
+  bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
@@ -537,7 +533,7 @@ img {
   color: #fff;
 }
 .SelfHotList_like {
-  transition: 0.3s;
+  transition: 0.5s;
   position: absolute;
   top: 0;
   left: 0;
@@ -548,6 +544,27 @@ img {
   padding: 0.5rem;
   background-color: #0f0f0f20;
   color: #fff;
+}
+.SelfHotList_btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  z-index: 1000;
+}
+.SelfHotList_ImgCon:hover .SelfHotList_name {
+  bottom: -100px;
+}
+.SelfHotList_ImgCon:hover .SelfHotList_like {
+  top: -100px;
+}
+.SelfHotList_btn:hover {
+  background-color: #0f0f0f50;
+  opacity: 1;
 }
 .SelfHotList_like img {
   width: 1rem;
@@ -645,6 +662,7 @@ img {
 .page-num {
   margin: 0 1rem;
 }
+
 /* Tooltips 영역 */
 .selfList_list .btn_con {
   width: 100%;
@@ -680,19 +698,170 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
+  flex-wrap: wrap;
+}
+.toolTips_con p {
+  font-family: 'Hahmlet', serif;
 }
 .toolTips_map {
-  border: 1px solid red;
   width: calc(50% - 1rem);
+  overflow: hidden;
+  border-radius: 10px;
 }
 .toolTips_pcon {
-  border: 1px solid red;
+  overflow: hidden;
+  border-radius: 10px;
   width: calc(50% - 1rem);
 }
 .toolTips_pcon > p {
   padding: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  color: #888;
+  font-size: 0.7rem;
+}
+.toolTips_pcon strong {
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #f1cb3f;
+}
+.toolTips_pcon .toolTips_title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f0f0f;
 }
 .toolTips_summ {
+  display: flex;
+  flex-wrap: wrap;
+}
+.toolTips_summ span {
+  width: 100%;
   overflow: scroll;
-  height: 20vh;
+  height: 10vh;
+}
+.toolTips_Pcon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+}
+.toolTips_Pcon button {
+  border: 1px solid #0f0f0f;
+  border-radius: 4px;
+  outline: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-family: 'Hahmlet', serif;
+  color: #0f0f0f;
+  padding: 0.5rem 1.2rem;
+  margin-left: 0.5rem;
+}
+.toolTips_Pcon button:hover {
+  background-color: tomato;
+  color: white;
+}
+#map {
+  width: 100%;
+  height: 270px;
+}
+
+/* Cart 영역 */
+.cart_block {
+  border: 1px solid red;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 0;
+  height: 100vh;
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0 -5px 5px rgba(15, 15, 15, 0.5);
+  padding: 3rem 3rem;
+  transition: 0.3s;
+}
+.cart_block.active {
+  width: 20%;
+  right: 0;
+}
+.close_con {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.close {
+  border: 1px solid #0f0f0f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+  margin-bottom: 2rem;
+  padding: 0.2rem 0.7rem;
+  transition: 0.3s;
+}
+.close:hover {
+  background-color: tomato;
+  color: white;
+}
+.cart_block > p {
+  text-align: center;
+  padding: 1rem;
+  font-weight: 700;
+}
+.cart_con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.cart_con p:nth-of-type(1) {
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.cart_con p:nth-of-type(2) {
+  border: 2px solid #0f0f0f;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+.cart_con p:nth-of-type(2)::after {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background-color: #0f0f0f;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  transition: 0.3s;
+}
+.cart_con p:nth-of-type(2):hover::after {
+  background-color: tomato;
+  transform: rotate(180deg) translate(-50%, 0%);
+}
+.cart_btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.cart_btns button {
+  margin-left: 0.5rem;
+  background-color: transparent;
+  border: 1px solid #0f0f0f;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+.cart_btns button:hover {
+  background-color: tomato;
+  color: white;
 }

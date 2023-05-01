@@ -1,7 +1,7 @@
 import './css/my_reset.css';
 import './css/App.css';
 
-import { json, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 
