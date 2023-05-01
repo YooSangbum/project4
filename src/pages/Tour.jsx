@@ -18,7 +18,7 @@ function Tour({ list }) {
       <section className="Tour selfList">
         <ul className="selfList_ul">
           {currentData.map((a, i) => {
-            return <TourSelfList a={a} key={i} />;
+            return <TourSelfList key={i} a={a} i={i} />;
           })}
         </ul>
       </section>

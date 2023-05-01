@@ -1,11 +1,15 @@
 import React, { useState, useRef } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { addItem } from '../store/cartStore';
+
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 
 import Kakao from './Maps';
 
-function ShopSelfList({ a }) {
+function ShopSelfList({ a, key }) {
   // let [like, setLike] = useState(false);
   // ===============================================================================================
 
@@ -35,6 +39,8 @@ function ShopSelfList({ a }) {
     setShow(!show);
     setTarget(event.target);
   };
+
+  let dispatch = useDispatch();
 
   return (
     <li
@@ -85,7 +91,7 @@ function ShopSelfList({ a }) {
           <Popover id="popover-contained">
             <Popover.Header as="h3">{a.tourspotNm}</Popover.Header>
             <Popover.Body>
-            <div className="toolTips_con">
+              <div className="toolTips_con">
                 <div className="toolTips_map">
                   <Kakao item={storage} />
                 </div>
@@ -113,7 +119,24 @@ function ShopSelfList({ a }) {
                   </p>
                 </div>
                 <div className="toolTips_Pcon">
-                  <button>담기</button>
+                  <button
+                    onClick={() => {
+                      dispatch(
+                        addItem({
+                          id: key,
+                          title: a.shppgNm,
+                          addr: a.shppgAddr,
+                          tel: a.shppgInqrTel,
+                          mapLat: a.mapLat,
+                          mapLot: a.mapLot,
+                          summ: a.shppgIntrd,
+                          dtlAddr: a.shppgDtlAddr,
+                        })
+                      );
+                    }}
+                  >
+                    담기
+                  </button>
                 </div>
               </div>
             </Popover.Body>

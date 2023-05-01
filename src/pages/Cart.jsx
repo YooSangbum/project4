@@ -1,7 +1,12 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteItem } from '../store/cartStore';
 
 function Cart() {
   let [img, setImg] = useState(false);
+  let cart = useSelector((state) => state.cart);
+  let dispatch = useDispatch();
+
   return (
     <section className="Cart">
       <div
@@ -34,10 +39,25 @@ function Cart() {
           </button>
         </div>
         <p>담은 목록</p>
-        <div className="cart_con">
-          <p>장소1</p>
-          <p></p>
-        </div>
+
+        {cart.map((a, i) => {
+          return (
+            <div className="cart_con" key={i}>
+              <p className="choiced">{a.title}</p>
+              <p
+                className="del"
+                onClick={(e) => {
+                  return dispatch(
+                    deleteItem(
+                      e.target.parentNode.querySelector('.choiced').textContent
+                    )
+                  );
+                }}
+              ></p>
+            </div>
+          );
+        })}
+
         <div className="cart_btns">
           <button>공유하기</button>
           <button>저장하기</button>

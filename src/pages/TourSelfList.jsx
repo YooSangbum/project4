@@ -1,10 +1,14 @@
 import React, { useState, useRef } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { addItem } from '../store/cartStore';
+
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 import Kakao from './Maps';
 
-function TourSelfList({ a }) {
+function TourSelfList({ a, i }) {
   // let [like, setLike] = useState(false);
   // ===============================================================================================
 
@@ -36,6 +40,8 @@ function TourSelfList({ a }) {
   };
   // ===============================================================================================
 
+  let dispatch = useDispatch();
+
   return (
     <li
       className="selfList_li"
@@ -52,23 +58,9 @@ function TourSelfList({ a }) {
       }}
     >
       <div className="selfList_list" ref={ref}>
-        <div
-          className="selfList_imgCon"
-          // onClick={() => {
-          //   setLike(!like);
-          // }}
-        >
+        <div className="selfList_imgCon">
           <img src={`${process.env.PUBLIC_URL}/image/like.png`} alt="하트" />
           <p>{randomInt}</p>
-
-          {/* {like === false ? (
-            <img
-              src={`${process.env.PUBLIC_URL}/image/like-none.png`}
-              alt="빈하트"
-            />
-          ) : (
-            <img src={`${process.env.PUBLIC_URL}/image/like.png`} alt="하트" />
-          )} */}
         </div>
         <p className="selfList_list_title">{a.tourspotNm}</p>
         <p className="selfList_list_Addr">{a.tourspotAddr}</p>
@@ -114,7 +106,24 @@ function TourSelfList({ a }) {
                   </p>
                 </div>
                 <div className="toolTips_Pcon">
-                  <button>담기</button>
+                  <button
+                    onClick={() => {
+                      dispatch(
+                        addItem({
+                          id: i,
+                          title: a.tourspotNm,
+                          addr: a.tourspotAddr,
+                          tel: a.refadNo,
+                          mapLat: 'a.mapLat',
+                          mapLot: 'a.mapLot',
+                          summ: a.restrntSumm,
+                          dtlAddr: a.tourspotDtlAddr,
+                        })
+                      );
+                    }}
+                  >
+                    담기
+                  </button>
                 </div>
               </div>
             </Popover.Body>

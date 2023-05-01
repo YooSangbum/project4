@@ -1,11 +1,15 @@
 import React, { useState, useRef } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { addItem } from '../store/cartStore';
+
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 
 import Kakao from './Maps';
 
-function RoomSelfList({ a }) {
+function RoomSelfList({ a, i }) {
   // let [like, setLike] = useState(false);
   // ===============================================================================================
 
@@ -35,6 +39,9 @@ function RoomSelfList({ a }) {
     setShow(!show);
     setTarget(event.target);
   };
+  // ===============================================================================================
+
+  let dispatch = useDispatch();
 
   return (
     <li
@@ -113,7 +120,24 @@ function RoomSelfList({ a }) {
                   </p>
                 </div>
                 <div className="toolTips_Pcon">
-                  <button>담기</button>
+                  <button
+                    onClick={() => {
+                      dispatch(
+                        addItem({
+                          id: i,
+                          title: a.romsNm,
+                          addr: a.romsAddr,
+                          tel: a.romsRefadNo,
+                          mapLat: 'a.mapLat',
+                          mapLot: 'a.mapLot',
+                          summ: a.romsSumm,
+                          dtlAddr: a.romsDtlAddr,
+                        })
+                      );
+                    }}
+                  >
+                    담기
+                  </button>
                 </div>
               </div>
             </Popover.Body>

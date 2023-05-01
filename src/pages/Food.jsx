@@ -18,7 +18,7 @@ function Food({ list }) {
       <section className="Food selfList">
         <ul className="selfList_ul">
           {currentData.map((a, i) => {
-            return <FoodSelfList a={a} key={i} />;
+            return <FoodSelfList a={a} i={i} key={i} />;
           })}
         </ul>
       </section>
