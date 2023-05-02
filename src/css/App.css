@@ -859,7 +859,8 @@ img {
   align-items: center;
   padding: 2rem 0;
 }
-.cart_btns button {
+.cart_btns button,
+.cart_btns a {
   margin-left: 0.5rem;
   background-color: transparent;
   border: 1px solid #0f0f0f;
@@ -869,7 +870,111 @@ img {
   font-size: 0.8rem;
   transition: 0.3s;
 }
-.cart_btns button:hover {
+.cart_btns button:hover,
+.cart_btns a:hover {
+  background-color: tomato;
+  color: white;
+}
+
+/* CartDetail 영역 */
+.CartDetail_name_con {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 1rem;
+  flex-wrap: wrap;
+}
+.CartDetail a {
+  background-color: transparent;
+  border: 1px solid #0f0f0f;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+}
+.CartDetail a:hover {
+  background-color: tomato;
+  color: white;
+}
+.CartDetail_name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.CartDetail_con {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.CartDetail_imgCon {
+  width: 30%;
+  padding-top: 20%;
+  font-size: 0.7rem;
+  text-align: center;
+  border: 1px solid #0f0f0f;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2rem 0;
+  position: relative;
+}
+.CartDetail_imgCon img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.CartDetail_imgCon p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.CartDetail_Pcon {
+  width: 65%;
+  border: 1px solid #0f0f0f;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+.CartDetail_Pcon > p {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  color: #0f0f0f;
+  font-size: 0.8rem;
+}
+.CartDetail_Pcon span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #888;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.CartDetail_Pcon > .CartDetail_title {
+  border-bottom: 2px double #0f0f0f;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f0f0f;
+  background-color: #e38233;
+}
+.CartDetail_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+.CartDetail_btn a {
+  background-color: transparent;
+  padding: 0.3rem 1rem;
+  border-radius: 6px;
+  outline: none;
+}
+.CartDetail_btn a:hover {
   background-color: tomato;
   color: white;
 }

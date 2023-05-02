@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { addItem } from '../store/cartStore';
@@ -6,6 +6,7 @@ import { addItem } from '../store/cartStore';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
+
 import Kakao from './Maps';
 
 function TourSelfList({ a, i }) {
@@ -39,6 +40,16 @@ function TourSelfList({ a, i }) {
     setTarget(event.target);
   };
   // ===============================================================================================
+  // 외부 클릭시 모달 닫힘
+  const overlayRef = useRef(null);
+  const handleClickOutside = (event) => {
+    if (overlayRef.current && !overlayRef.current.contains(event.target)) {
+      setShow(!show);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+  }, [show]);
 
   let dispatch = useDispatch();
 
@@ -78,7 +89,7 @@ function TourSelfList({ a, i }) {
           <Popover id="popover-contained">
             <Popover.Header as="h3">{a.tourspotNm}</Popover.Header>
             <Popover.Body>
-              <div className="toolTips_con">
+              <div className="toolTips_con" ref={overlayRef}>
                 <div className="toolTips_map">
                   <Kakao item={storage} />
                 </div>

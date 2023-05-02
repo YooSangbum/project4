@@ -37,7 +37,7 @@ function SelfHotList() {
         {hotPlace.map((item, i) => {
           return (
             <SwiperSlide key={i}>
-              <SelfHotCard item={item} />
+              <SelfHotCard item={item} i={i} />
             </SwiperSlide>
           );
         })}

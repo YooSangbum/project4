@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteItem } from '../store/cartStore';
+import { Link } from 'react-router-dom';
 
 function Cart() {
   let [img, setImg] = useState(false);
@@ -60,7 +61,7 @@ function Cart() {
 
         <div className="cart_btns">
           <button>공유하기</button>
-          <button>저장하기</button>
+          <Link to="/cartdetail">저장하기</Link>
         </div>
       </div>
     </section>

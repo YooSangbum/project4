@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { addItem } from '../store/cartStore';
@@ -9,7 +9,7 @@ import Popover from 'react-bootstrap/Popover';
 
 import Kakao from './Maps';
 
-function ShopSelfList({ a, key }) {
+function ShopSelfList({ a, i }) {
   // let [like, setLike] = useState(false);
   // ===============================================================================================
 
@@ -39,6 +39,17 @@ function ShopSelfList({ a, key }) {
     setShow(!show);
     setTarget(event.target);
   };
+  // ===============================================================================================
+  // 외부 클릭시 모달 닫힘
+  const overlayRef = useRef(null);
+  const handleClickOutside = (event) => {
+    if (overlayRef.current && !overlayRef.current.contains(event.target)) {
+      setShow(!show);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+  }, [show]);
 
   let dispatch = useDispatch();
 
@@ -91,7 +102,7 @@ function ShopSelfList({ a, key }) {
           <Popover id="popover-contained">
             <Popover.Header as="h3">{a.tourspotNm}</Popover.Header>
             <Popover.Body>
-              <div className="toolTips_con">
+              <div className="toolTips_con" ref={overlayRef}>
                 <div className="toolTips_map">
                   <Kakao item={storage} />
                 </div>
@@ -123,7 +134,7 @@ function ShopSelfList({ a, key }) {
                     onClick={() => {
                       dispatch(
                         addItem({
-                          id: key,
+                          id: i,
                           title: a.shppgNm,
                           addr: a.shppgAddr,
                           tel: a.shppgInqrTel,

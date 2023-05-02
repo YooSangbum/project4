@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { addItem } from '../store/cartStore';
+
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 import Kakao from './Maps';
 
 function MyVerticallyCenteredModal(props) {
+  let dispatch = useDispatch();
+
   return (
     <Modal
       {...props}
@@ -51,7 +57,25 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <div className="toolTips_Pcon">
-          <Button>담기</Button>
+          <Button
+            onClick={() => {
+              dispatch(
+                addItem({
+                  id: props.i,
+                  title: props.item.title,
+                  addr: props.item.addr,
+                  tel: props.item.tel,
+                  mapLat: props.item.mapLat,
+                  mapLot: props.item.mapLot,
+                  summ: props.item.summ,
+                  dtlAddr: props.item.dtlAddr,
+                  img: props.item.img,
+                })
+              );
+            }}
+          >
+            담기
+          </Button>
           <Button onClick={props.onHide}>Close</Button>
         </div>
       </Modal.Footer>
@@ -59,7 +83,7 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-function SelfHotCard({ item }) {
+function SelfHotCard({ item, i }) {
   const [modalShow, setModalShow] = useState(false);
 
   let [storage, setStorage] = useState([]);
@@ -106,7 +130,6 @@ function SelfHotCard({ item }) {
         variant="primary"
         onClick={() => {
           setModalShow(!modalShow);
-          console.log('asd', modalShow);
         }}
       >
         더보기 +
@@ -115,6 +138,8 @@ function SelfHotCard({ item }) {
         show={modalShow}
         onHide={() => setModalShow(false)}
         storage={storage}
+        item={item}
+        i={i}
       />
     </div>
   );

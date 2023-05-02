@@ -10,6 +10,7 @@ import Main from './pages/Main';
 import Footer from './pages/Footer';
 import MainList from './pages/MainList';
 import Self from './pages/Self';
+import CartDetail from './pages/CartDetail';
 
 function App() {
   useEffect(() => {
@@ -48,6 +49,7 @@ function App() {
         <Route path="/" element={<Main />}></Route>
         <Route path="/mainList" element={<MainList />}></Route>
         <Route path="/self" element={<Self />}></Route>
+        <Route path="/cartDetail" element={<CartDetail />}></Route>
       </Routes>
 
       <Footer />
