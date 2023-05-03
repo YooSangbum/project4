@@ -27,31 +27,55 @@ img {
   height: 10vh;
 }
 .logo {
-  width: 120px;
+  width: 100px;
 }
 .login,
 .myPage {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   padding: 1rem;
+}
+
+/* SubHeader 영역 */
+.SubHeader {
+  margin: 1rem 0;
+}
+.SubHeader .bar {
+  border-bottom: 2px solid #0f0f0f;
+}
+.SubHeader a {
+  display: inline-block;
+  border-radius: 4px 4px 0 0;
+  padding: 0.3rem;
+  margin-right: 1rem;
+  transition: 0.3s;
+}
+.SubHeader a:hover {
+  background-color: #eee;
+  color: #0f0f0f;
+}
+.SubHeader a.on {
+  background-color: tomato;
+  color: #eee;
 }
 
 /* MainBanner 영역 */
 .main {
   background-color: var(--c-bg);
   height: calc((100vh - 20vh));
-  padding: 5rem 0;
+  padding: 8rem 0;
 }
 .MainBanner {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  text-align: center;
 }
 .MainBanner img {
-  -webkit-animation-delay: 18s;
-  -moz-animation-delay: 18s;
-  -ms-animation-delay: 18s;
-  animation-delay: 18s;
+  -webkit-animation-delay: 10s;
+  -moz-animation-delay: 10s;
+  -ms-animation-delay: 10s;
+  animation-delay: 10s;
 }
 .main_logo {
   width: 50%;
@@ -77,11 +101,11 @@ img {
 }
 .maps {
   animation: fadeInRotate ease-in backwards 2s;
-  animation-delay: 1s;
+  animation-delay: 0;
 }
 .mart {
   animation: brrr 2s ease-in backwards;
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 .mart > img {
   left: 70%;
@@ -93,10 +117,10 @@ img {
   width: 20%;
   font-size: 1.25rem;
   color: beige;
-  animation: blurFadeIn 1s ease-in backwards 3s;
+  animation: blurFadeIn 1s ease-in backwards 2s;
 }
 .cartGif {
-  animation: blurFadeIn 1s ease-in backwards 3s;
+  animation: blurFadeIn 1s ease-in backwards 2s;
   width: 100%;
   padding: 1rem;
 }
@@ -104,17 +128,18 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   margin-top: 1rem;
 }
 .choice_left {
   width: 50%;
   text-align: end;
-  padding-right: 3rem;
   animation: fadeInRotate ease-in backwards;
   animation-duration: 0.5s;
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 .choice_left svg {
+  width: 100%;
   cursor: pointer;
 }
 .choice_left svg:hover path:nth-of-type(1) {
@@ -128,12 +153,12 @@ img {
 }
 .choice_right {
   width: 50%;
-  padding-left: 3rem;
   animation: fadeInRotate ease-in backwards;
   animation-duration: 0.5s;
-  animation-delay: 3s;
+  animation-delay: 2.5s;
 }
 .choice_right svg {
+  width: 100%;
   cursor: pointer;
 }
 .choice_right svg:hover path:nth-of-type(1) {
@@ -233,10 +258,12 @@ img {
   height: 10vh;
 }
 .ftLogo {
-  width: 120px;
+  width: 80px;
 }
 .ftCon {
-  font-size: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
 }
 /* MainList */
 /* CartList 영역 */
@@ -741,7 +768,7 @@ img {
 }
 .toolTips_summ span {
   width: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 10vh;
 }
 .toolTips_Pcon {
@@ -977,4 +1004,92 @@ img {
 .CartDetail_btn a:hover {
   background-color: tomato;
   color: white;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  /* main 영역 */
+  .choice {
+    width: 80%;
+  }
+  .choice_left svg,
+  .choice_right svg {
+    width: 80%;
+  }
+}
+
+@media (max-width: 750px) {
+  /* main 영역 */
+  .login,
+  .myPage {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  .main_logo {
+    width: 70%;
+  }
+  .main_logoP {
+    font-size: 0.8rem;
+  }
+  .choice {
+    margin-top: 0;
+  }
+
+  /* self 영역 */
+  .SubHeader a {
+    font-size: 0.8rem;
+  }
+  .Select .selectCon select {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    margin: 1rem 0.3rem 1rem 0;
+  }
+  .Select .selectCon option {
+    font-size: 0.8rem;
+  }
+  .selfList_imgCon {
+    font-size: 0.8rem;
+  }
+  .selfList_list img {
+    width: 0.8rem;
+  }
+  .selfList_list_title {
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .selfList_list_Addr {
+    font-size: 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 400px) {
+  /* self 영역 */
+  .Select .selectCon select {
+    font-size: 0.6rem;
+    padding: 0.3rem;
+    margin: 1rem 0.3rem 1rem 0;
+  }
+  .Select .selectCon option {
+    font-size: 0.8rem;
+  }
+  .SelectImgCon {
+    width: 30px;
+  }
+}
+
+@media (max-width: 350px) {
+  /* main 영역 */
+  .main_logoP {
+    font-size: 0.6rem;
+  }
+
+  /* self 영역 */
+  .SubHeader a {
+    font-size: 0.6rem;
+  }
 }

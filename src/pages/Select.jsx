@@ -2,7 +2,7 @@ import Cart from './Cart';
 
 function Select({ handleSearchGu, handleSearchDong, handleSelect, chooseGu }) {
   return (
-    <section className="Select mw">
+    <section className="Select ">
       <div className="selectCon">
         <select onChange={handleSearchGu} name="name1" id="">
           <option value="구전체">구전체</option>

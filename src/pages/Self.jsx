@@ -9,10 +9,10 @@ import Tour from './Tour';
 import Shop from './Shop';
 import Food from './Food';
 import Room from './Room';
-
+import SubHeader from './SubHeader';
 // ==============================================================================
 
-function Self() {
+function Self({ subName }) {
   let [locationList] = useState(locations);
   let [chooseGu, setChooseGu] = useState([]);
   let [recentItems, setRecentItems] = useState([]);
@@ -111,6 +111,7 @@ function Self() {
   return (
     <>
       <section className="Self mw">
+        <SubHeader subName={subName} />
         <Select
           handleSearchGu={handleSearchGu}
           handleSearchDong={handleSearchDong}

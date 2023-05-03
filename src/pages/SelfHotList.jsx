@@ -20,6 +20,23 @@ function SelfHotList() {
       </p>
 
       <Swiper
+        breakpoints={{
+          // when window width is >= 320px (mobile)
+          270: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          // when window width is >= 768px (tablet)
+          700: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          // when window width is >= 1200px (desktop)
+          1100: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+        }}
         slidesPerView={5}
         spaceBetween={30}
         centeredSlides={true}

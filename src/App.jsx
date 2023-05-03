@@ -1,7 +1,7 @@
 import './css/my_reset.css';
 import './css/App.css';
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 
@@ -41,14 +41,19 @@ function App() {
     fetchData();
   }, []);
 
+  let subName = useLocation().pathname;
+
   return (
     <div className="App">
       <Header />
 
       <Routes>
         <Route path="/" element={<Main />}></Route>
-        <Route path="/mainList" element={<MainList />}></Route>
-        <Route path="/self" element={<Self />}></Route>
+        <Route
+          path="/mainList"
+          element={<MainList subName={subName} />}
+        ></Route>
+        <Route path="/self" element={<Self subName={subName} />}></Route>
         <Route path="/cartDetail" element={<CartDetail />}></Route>
       </Routes>
 
