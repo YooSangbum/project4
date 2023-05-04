@@ -41,15 +41,18 @@ function RoomSelfList({ a, i }) {
   };
   // ===============================================================================================
   // 외부 클릭시 모달 닫힘
-  const overlayRef = useRef(null);
-  const handleClickOutside = (event) => {
-    if (overlayRef.current && !overlayRef.current.contains(event.target)) {
-      setShow(!show);
-    }
-  };
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
-  }, [show]);
+  // const overlayRef = useRef(null);
+  // const handleClickOutside = (event) => {
+  //   if (overlayRef.current && !overlayRef.current.contains(event.target)) {
+  //     setShow(!show);
+  //   }
+  // };
+  // useEffect(() => {
+  //   document.addEventListener('click', handleClickOutside, true);
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutside, true);
+  //   };
+  // }, [show]);
 
   let dispatch = useDispatch();
 
@@ -100,9 +103,14 @@ function RoomSelfList({ a, i }) {
           containerPadding={20}
         >
           <Popover id="popover-contained">
-            <Popover.Header as="h3">{a.tourspotNm}</Popover.Header>
+            <Popover.Header as="h3">
+              {a.romsNm}
+              <button className="xbtn" onClick={handleClick}>
+                X
+              </button>
+            </Popover.Header>
             <Popover.Body>
-              <div className="toolTips_con" ref={overlayRef}>
+              <div className="toolTips_con">
                 <div className="toolTips_map">
                   <Kakao item={storage} />
                 </div>

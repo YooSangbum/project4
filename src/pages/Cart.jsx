@@ -15,19 +15,8 @@ function Cart() {
         onClick={() => {
           setImg(!img);
         }}
-      >
-        {img === false ? (
-          <img
-            src={`${process.env.PUBLIC_URL}/image/bag.png`}
-            alt="장바구니담기"
-          />
-        ) : (
-          <img
-            src={`${process.env.PUBLIC_URL}/image/bag_effect copy.png`}
-            alt="장바구니담기"
-          />
-        )}
-      </div>
+      ></div>
+
       <div className={`cart_block ${img ? 'active' : ''}`}>
         <div className="close_con">
           <button
@@ -36,7 +25,7 @@ function Cart() {
               setImg(false);
             }}
           >
-            닫기
+            <p></p>
           </button>
         </div>
         <p>담은 목록</p>
