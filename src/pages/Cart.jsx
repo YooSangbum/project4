@@ -10,12 +10,14 @@ function Cart() {
 
   return (
     <section className="Cart">
-      <div
-        className="SelectImgCon"
-        onClick={() => {
-          setImg(!img);
-        }}
-      ></div>
+      {img ? null : (
+        <div
+          className="SelectImgCon"
+          onClick={() => {
+            setImg(!img);
+          }}
+        ></div>
+      )}
 
       <div className={`cart_block ${img ? 'active' : ''}`}>
         <div className="close_con">
