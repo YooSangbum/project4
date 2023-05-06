@@ -322,6 +322,7 @@ img {
 .like {
   width: 1.2rem;
   height: 1.2rem;
+  margin-right: 0.3rem;
 }
 .like path {
   fill: transparent;
@@ -347,6 +348,14 @@ img {
 }
 .CartList_contents {
   padding: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.CartList_contents p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .LinkCon {
   width: 100%;
@@ -400,6 +409,7 @@ img {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
 .HotList_li {
   border: 3px solid #0f0f0f;
@@ -415,8 +425,8 @@ img {
   box-shadow: 6px 5px 1px #0f0f0f;
 }
 .HotList_imgcon {
-  width: 50%;
-  padding-top: 50%;
+  width: 40%;
+  padding-top: 40%;
   border-radius: 6px;
   position: relative;
   overflow: hidden;
@@ -431,12 +441,22 @@ img {
   transform: translate(-50%, -50%);
 }
 .HotList_pcon {
-  width: 50%;
+  width: 60%;
   padding-left: 0.5rem;
 }
 .HotList_pcon > * {
   padding: 0.5rem 0;
 }
+.HotList_place {
+  font-size: 1rem;
+}
+.HotList_add {
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .HotList_li a {
   position: absolute;
   top: 0;
@@ -451,6 +471,7 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
+  flex-wrap: wrap;
 }
 .PickList,
 .BookMarkList {
@@ -954,7 +975,7 @@ img {
   font-size: 1.2rem;
   font-weight: 700;
   width: 100%;
-  margin: 0 auto;
+  margin: 1rem auto;
   text-align: center;
 }
 .CartDetail_con {
@@ -1035,6 +1056,15 @@ img {
   color: white;
 }
 
+/* 반응형 */
+
+@media (max-width: 1250px) {
+  .BestPlaceSvg {
+    left: -4%;
+    width: 130px;
+  }
+}
+
 @media (max-width: 900px) {
   /* main 영역 */
   .choice {
@@ -1050,6 +1080,11 @@ img {
     padding: 0.1rem 0.8rem;
     margin-top: 1rem;
     margin-left: 0.5rem;
+  }
+  /* CartList 영역 */
+  .CartList_name {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
   }
 }
 
@@ -1109,6 +1144,21 @@ img {
     margin-top: 1rem;
     margin-left: 0.5rem;
   }
+  /* CartList 영역 */
+  .CartList_name {
+    font-size: 1rem;
+    padding: 0.3rem 0;
+  }
+  .CartList_name span {
+    margin-right: 0.3rem;
+  }
+  .CartList_name img {
+    width: 1.4rem;
+    margin-left: 0.2rem;
+  }
+  .HotList_place {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1145,6 +1195,99 @@ img {
   .selfList_list .btn-primary {
     width: 20%;
     padding: 0.3rem;
+  }
+  /* CartList 영역 */
+  .CartList_li {
+    width: 100%;
+  }
+  /* Hotlist 영역 */
+  .HotList_li {
+    width: calc(100% - 3rem);
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    position: relative;
+  }
+  .HotList_place {
+    font-size: 1rem;
+  }
+  .HotList_add {
+    font-size: 0.8rem;
+  }
+  .HotList_imgcon {
+    padding-top: 25%;
+  }
+  .BestPlace {
+    border-radius: 30px;
+    margin: 4rem auto 4rem;
+    border: 3px solid red;
+  }
+  .BestPlaceSvg {
+    position: absolute;
+    width: 100px;
+    top: -12%;
+    left: -8%;
+  }
+  .BestPlace_ListCon {
+    padding: 1rem;
+  }
+  /* CartDetail 영역 */
+  .CartDetail_imgCon {
+    width: 40%;
+    padding-top: 30%;
+  }
+  .CartDetail_Pcon {
+    width: 55%;
+  }
+  .CartDetail a {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+}
+@media (max-width: 450px) {
+  .BestPlaceSvg {
+    width: 80px;
+    top: -10%;
+    left: -10%;
+  }
+  .HotList_li {
+    width: calc(100% - 1rem);
+  }
+  .PickList,
+  .BookMarkList {
+    width: calc(100%);
+  }
+  .PickList span,
+  .BookMarkList span {
+    font-size: 0.8rem;
+  }
+  .PickList_li,
+  .BookMarkList_li {
+    font-size: 0.8rem;
+  }
+  .CartDetail_con {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .CartDetail_imgCon {
+    width: 50%;
+    padding-top: 40%;
+    margin: 0;
+  }
+  .CartDetail_Pcon {
+    width: 100%;
+  }
+  .CartDetail_Pcon > .CartDetail_title {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+  .CartDetail_Pcon span {
+    font-size: 0.8rem;
+    margin: 0.1rem 0;
+  }
+  .CartDetail_Pcon > p {
+    font-size: 0.7rem;
+    padding: 0.2rem 1rem;
   }
 }
 
@@ -1186,6 +1329,18 @@ img {
   .page-num {
     font-size: 0.9rem;
   }
+  /* CartList 영역 */
+  .CartList_name {
+    font-size: 0.8rem;
+    padding: 0.1rem 0;
+  }
+  .CartList_name span {
+    margin-right: 0.1rem;
+  }
+  .CartList_name img {
+    width: 1rem;
+    margin-left: 0.1rem;
+  }
 }
 
 @media (max-width: 350px) {
@@ -1197,5 +1352,13 @@ img {
   /* self 영역 */
   .SubHeader a {
     font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .BestPlaceSvg {
+    width: 60px;
+    top: -10%;
+    left: -10%;
   }
 }

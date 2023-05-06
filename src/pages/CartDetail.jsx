@@ -7,7 +7,7 @@ function CartDetail() {
     <section className="CartDetail mw">
       <div className="CartDetail_name_con">
         <Link to="/self">뒤로가기</Link>
-        <p className="CartDetail_name">MY Place Cart</p>
+        <p className="CartDetail_name">My Place Cart</p>
       </div>
       {cart.map((a, i) => {
         return (

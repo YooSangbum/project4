@@ -17,7 +17,7 @@ function CartList({ data }) {
           );
         })}
         <div className="LinkCon">
-          <Link to="/" className="CartList_more">
+          <Link to="" className="CartList_more">
             더보기{' '}
           </Link>
         </div>

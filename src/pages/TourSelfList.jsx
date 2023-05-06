@@ -36,9 +36,18 @@ function TourSelfList({ a, i }) {
   const ref = useRef(null);
 
   const handleClick = (event) => {
+    // event.stopPropagation();
     setShow(!show);
     setTarget(event.target);
   };
+  // 화면을 클릭하면 모달이 닫히는 기능
+  // useEffect(() => {
+  //   document.addEventListener('click', (e) => {
+  //     e.stopPropagation();
+  //     show === true ? setShow(false) : setShow(false);
+  //   });
+  // }, [show]);
+
   // ===============================================================================================
   // 외부 클릭시 모달 닫힘
   // const overlayRef = useRef(null);
