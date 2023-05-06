@@ -1256,6 +1256,7 @@ img {
   .BookMarkList {
     width: calc(100%);
   }
+  .HotList_Title > span,
   .PickList span,
   .BookMarkList span {
     font-size: 0.8rem;
