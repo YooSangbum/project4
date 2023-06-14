@@ -11,6 +11,12 @@
 
 ---
 
+### 미리보기
+
+> <img src="https://github.com/YooSangbum/project4/blob/master/public/readmeimg/mapsmart.gif?raw=true" width='550px' alt='demo' >
+
+---
+
 ### 프로젝트 기간
 
 > 2023.04.10일 ~ 2023.04.28일
